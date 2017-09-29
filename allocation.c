@@ -65,4 +65,55 @@ int main() {
   s->name = "Luke Skywalker";
   printf("s->name: %s\n", s->name);
 
+  /*
+   * We allocate an array of structs the same way as we allocate an array
+   * of ints, multiplying the size of the struct by the number we want to
+   * allocate, and passing the resulting number of bytes to malloc.
+   *
+   * We can access the fields of the elements of an array of structs using the
+   * dot operator, as below.
+   */
+  int m = 64;
+  struct student* students = malloc(m* sizeof(struct student));
+  for (j = 0; j < m; j++) {
+    students[j].name = "Luke Skywalker";
+    students[j].standing = 1;
+    students[j].gpa = 4.0;
+  }
+  printf("\n\n");
+  printf("students[4].name: %s\n", students[4].name);
+
+  /*
+   * A 2D array is actually represented as a 1D array of 1D arrays, i.e. a
+   * pointer to an array of pointers, each of which points to a 1D array of
+   * elements.  To allocate a 2D array, we need to allocate memory for the
+   * outer 1D array of pointers, and then allocate a 1D array for each of
+   * those pointers to point to.
+   *
+   * Here's how it would look to allocate an m x n array of ints.
+   */
+  int** matrix = malloc(m * sizeof(int*));
+  for (j = 0; j < m; j++) {
+    matrix[j] = malloc(n * sizeof(int));
+  }
+
+  /*
+   * It's very important to free all of the memory you allocate so your
+   * program doesn't leak memory.  Let's use the free() function to free all
+   * of the memory we allocated above.
+   */
+  free(i);
+  free(array);
+  free(s);
+  free(students);
+
+  /*
+   * In order to free the memory allocated to our 2D array, we need to reverse
+   * what we did to allocate it.  Specifically, we need to free each of the
+   * inner 1D arrays of ints before we free the outer 1D array of pointers.
+   */
+  for (j = 0; j < m; j++) {
+    free(matrix[j]);
+  }
+  free(matrix);
 }
