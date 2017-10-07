@@ -24,6 +24,7 @@ int main()
    * Update the value stored at the memory address pointed to by i by
    * dereferencing i.
    */
+    printf("\n~ Changing to 16 ~\n");
     *i = 16;
     printf("*i: %d\n", *i);
     printf("&i: %p\n", &i);
@@ -53,6 +54,7 @@ int main()
     printf("&array[0]: %p\n", &array[0]);
     printf("array[0]: %d\n", array[0]);
     printf("array[10]: %d\n", array[10]);
+    printf("~ Changing array[0] = 100 ~\n");
     *array = 100;
     printf("array[0]: %d\n", array[0]);
 
@@ -63,6 +65,7 @@ int main()
    * (i.e. ->) both dereferences a struct pointer and accesses one of its
    * fields.
    */
+    printf("\n~ Allocating mem for struct ~\n");
     struct student *s = malloc(sizeof(struct student));
     printf("sizeof(struct student): %lu\n", sizeof(struct student));
     s->name = "Luke Skywalker";
@@ -85,7 +88,9 @@ int main()
         students[j].gpa = 4.0;
     }
     printf("\n\n");
-    printf("students[4].name: %s\n", students[4].name);
+    printf("students[29].name: %s\n", students[29].name);
+    printf("students[29].gpa: %.2f\n", students[29].gpa);
+    printf("students[29].standing: %d\n", students[29].standing);
 
     /*
    * A 2D array is actually represented as a 1D array of 1D arrays, i.e. a

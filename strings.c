@@ -35,9 +35,16 @@ int main()
    *     just allocated.
    *   - Correct the spelling mistake in the copied string.
    */
+
+    // Getting length
     int len = strlen(name);
-    char *copy = malloc((len + 1) * sizeof(char));
+    printf("len: %i\n", len);
+
+    // Copy Section
+    printf("\n~ Starting copy. ~\n");
+    char *copy = malloc((len + 1) * sizeof(char)); // Does the '+1' account for the NULL character?
     strcpy(copy, name);
-    copy[2] = 'i';
-    printf("copy: %s\n", copy);
+    copy[2] = 'i'; // this changes the a to an i
+    printf("original = %s\n", name);
+    printf("copy = %s\n", copy);
 }

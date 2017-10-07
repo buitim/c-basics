@@ -23,7 +23,7 @@ int main(int argc, char **argv)
    * The printed number will have 16 total characters, with 4 characters after
    * the decimal point, and it'll be zero-padded at the front.
    */
-    printf("pi is: %016.4f\n", pi);
+    printf("pi is: %f\n", pi);
 
     /* Printing a single character with printf() with the %c placeholder. */
     printf("a is: %c\n", a);
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
    */
     for (i = 0; i < argc; i++)
     {
-        printf("argv[%8d]: %s\n", i, argv[i]);
+        printf("argv[%d]: %s\n", i, argv[i]);
     }
 
     /* Calling the function foo(). */
