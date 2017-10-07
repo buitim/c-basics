@@ -3,18 +3,19 @@
 
 #include <string.h>
 
-int main() {
-  /*
+int main()
+{
+    /*
    * Note that when initializing a string with a constant (i.e. with a string
    * "inside double quotes"), that string points to a location in read-only
    * memory and can't be modified.  The string should thus be declared as
    * const.  By doing this, trying to modify it, as in the commented-out line
    * below, becomes a compile-time error instead of a runtime error.
    */
-  const char* name = "Prancess Leia";
-  // name[2] = 'i';
+    const char *name = "Prancess Leia";
+    // name[2] = 'i';
 
-  /*
+    /*
    * To create strings we can manipulate, we need to allocate memory for them
    * on the heap.  Note that strings in C are just arrays of characters.
    *
@@ -34,9 +35,9 @@ int main() {
    *     just allocated.
    *   - Correct the spelling mistake in the copied string.
    */
-  int len = strlen(name);
-  char* copy = malloc((len + 1) * sizeof(char));
-  strcpy(copy, name);
-  copy[2] = 'i';
-  printf("copy: %s\n", copy);
+    int len = strlen(name);
+    char *copy = malloc((len + 1) * sizeof(char));
+    strcpy(copy, name);
+    copy[2] = 'i';
+    printf("copy: %s\n", copy);
 }

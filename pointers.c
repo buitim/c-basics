@@ -7,21 +7,23 @@
  * (using a pointer), and the update will affect that value in the calling
  * function.
  */
-void make_it_32(int* it) {
-  *it = 32;
+void make_it_32(int *it)
+{
+    *it = 32;
 }
 
-int main() {
+int main()
+{
 
-  /*
+    /*
    * Declare an integer variable and a pointer to an integer.  Initialize
    * the pointer to point to the memory location occupied by the original
    * integer.
    */
-  int i = 20;
-  int* i_ptr = &i;
+    int i = 20;
+    int *i_ptr = &i;
 
-  /*
+    /*
    * Print the value of our integer, the value of our pointer, and the
    * memory address of the integer, the latter two of which will be the same.
    * Also, dereference i_ptr (i.e. *i_ptr) to see the value stored at the
@@ -29,37 +31,37 @@ int main() {
    * itself lives, which is different than the address value it stores (which
    * is the address of i).
    */
-  printf("i: %d\n", i);
-  printf("i_ptr: %p\n", i_ptr);
-  printf("&i: %p\n", &i);
-  printf("*i_ptr: %d\n", *i_ptr);
-  printf("&i_ptr: %p\n", &i_ptr);
+    printf("i: %d\n", i);
+    printf("i_ptr: %p\n", i_ptr);
+    printf("&i: %p\n", &i);
+    printf("*i_ptr: %d\n", *i_ptr);
+    printf("&i_ptr: %p\n", &i_ptr);
 
-  /*
+    /*
    * Dereference i_ptr (i.e. *i_ptr) to update the value stored at the memory
    * address held in i_ptr.  Note that this updates the value of i itself.
    * However, the memory addresses where i and i_ptr themselves live do not
    * change.
    */
-  *i_ptr = 8;
-  printf("\n\n");
-  printf("i: %d\n", i);
-  printf("i_ptr: %p\n", i_ptr);
-  printf("&i: %p\n", &i);
-  printf("*i_ptr: %d\n", *i_ptr);
-  printf("&i_ptr: %p\n", &i_ptr);
+    *i_ptr = 8;
+    printf("\n\n");
+    printf("i: %d\n", i);
+    printf("i_ptr: %p\n", i_ptr);
+    printf("&i: %p\n", &i);
+    printf("*i_ptr: %d\n", *i_ptr);
+    printf("&i_ptr: %p\n", &i_ptr);
 
-  /*
+    /*
    * Demonstrate how we can simulate pass-by-reference by passing the address
    * of i into our make_it_32() function.  When this function returns, the
    * value of i will be changed to 32.  Note that we could also pass i_ptr as
    * the argument to make_it_32() here and it would have the same effect.
    */
-  make_it_32(&i);
-  printf("\n\n");
-  printf("i: %d\n", i);
-  printf("i_ptr: %p\n", i_ptr);
-  printf("&i: %p\n", &i);
-  printf("*i_ptr: %d\n", *i_ptr);
-  printf("&i_ptr: %p\n", &i_ptr);
+    make_it_32(&i);
+    printf("\n\n");
+    printf("i: %d\n", i);
+    printf("i_ptr: %p\n", i_ptr);
+    printf("&i: %p\n", &i);
+    printf("*i_ptr: %d\n", *i_ptr);
+    printf("&i_ptr: %p\n", &i_ptr);
 }
